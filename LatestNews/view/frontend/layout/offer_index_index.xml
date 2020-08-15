@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+      <css src="Abhay_LatestNews/css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Abhay\LatestNews\Block\Index\Index" name="abhay_latestnews_news.index" template="Abhay_LatestNews::index.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

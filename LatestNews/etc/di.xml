@@ -1,0 +1,20 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="abhay_latestnews_news_listing_data_source" xsi:type="string">Abhay\LatestNews\Model\ResourceModel\News\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Abhay\LatestNews\Model\ResourceModel\News\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">latest_news</argument>
+            <argument name="resourceModel" xsi:type="string">Abhay\LatestNews\Model\ResourceModel\News</argument>
+        </arguments>
+    </virtualType>
+    <type name="Abhay\LatestNews\Block\Index\Index">
+        <arguments>
+            <argument name="templateProcessor" xsi:type="object">Magento\Widget\Model\Template\Filter</argument>
+        </arguments>
+    </type>
+</config>

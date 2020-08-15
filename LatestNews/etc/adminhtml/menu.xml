@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Abhay_LatestNews::latestnews"
+             title="Latest Offer"
+             module="Abhay_LatestNews"
+             sortOrder="51"
+             resource="Abhay_LatestNews::latestnews"/>
+
+        <add id="Abhay_LatestNews::news"
+             title="Manage Offer"
+             module="Abhay_LatestNews"
+             sortOrder="10"
+             action="latest/news"
+             resource="Abhay_LatestNews::latestnews"
+             parent="Abhay_LatestNews::latestnews"/>
+
+        <add id="Abhay_LatestNews::latestnews_configuration"
+             title="Configuration"
+             module="Abhay_LatestNews"
+             sortOrder="99"
+             parent="Abhay_LatestNews::latestnews"
+             action="adminhtml/system_config/edit/section/helloworld"
+             resource="Abhay_LatestNews::latestnews_config"/>
+    </menu>
+</config>

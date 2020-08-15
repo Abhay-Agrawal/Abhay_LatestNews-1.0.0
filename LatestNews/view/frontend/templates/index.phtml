@@ -1,0 +1,62 @@
+<?php
+$isEnable = $block->getConfig();
+$color = $block->getcolor();
+$newsCollection = $block->getnewsCollection();
+?>
+
+<?php if($newsCollection->getSize() > 0): ?>
+  <?php if($isEnable): ?>
+    <ul>
+      <?php foreach ($newsCollection as $news): ?>
+        <li>
+          <div>
+              <?php $title = $news->getTitle() ?>
+              <h2 style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+                <?php echo $title ?>
+              </h2>
+              <div>
+                <table border="1px solid black;">
+                  <tr>
+                      <b style="float: left;">Offer Start Date: <b style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+                        <?php echo $news->getStartDate(); ?>
+                      </b></b>
+                      <b style="float: right;">Offer End Date: <b style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+                        <?php echo $news->getEndDate(); ?>
+                      </b></b>
+                  </tr>
+                </table>
+              </div>
+              <br/>
+              <div class="news_content">
+                <?php
+                $content = substr($news->getContent(),0,500);
+                echo $this->getContentFromStaticBlock($content)."......";
+                ?>
+              </div>
+              <div>
+                <table border="1px solid red;">
+                  <tr>
+                    <b style="float: left;">Author Name: <b style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+                      <?php echo $news->getAuthorName(); ?>
+                    </b></b>
+                    <a href="<?php echo $this->getUrl('offer/index/view',['id' => $news->getId()]) ?>" >
+                      <button>Know More...</button>
+                    </a>
+                  </tr>
+                </table>
+
+              </div>
+          </div>
+          <div style="clear: both; border: 1px solid <?php echo $color ?>; color: <?php echo $color ?>;"></div>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <div class="toolbar-bottom">
+      <div class="toolbar bottom">
+        <?php echo $block->getPagerHtml(); ?>
+      </div>
+    </div>
+  <?php endif; ?>
+<?php else : ?>
+    <p><?php echo __('Have no offers at that time!') ?></p>
+<?php endif; ?>

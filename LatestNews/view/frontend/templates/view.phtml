@@ -1,0 +1,27 @@
+<?php
+$isEnable = $block->getConfig();
+$color = $block->getcolor();
+$newsId = $this->getRequest()->getParam('id');
+$newsCollection = $block->getNewsInformation($newsId);
+?>
+<div>
+  <h2 class="view_header"  style="text-decoration: underline; color: <?php echo $color ?>; color: <?php echo $color ?>"><?php echo $newsCollection->getTitle() ?></h2>
+  <table>
+    <tr>
+      <b style="float: left;">Offer Start Date: <b style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+        <?php echo $newsCollection->getStartDate(); ?>
+      </b></b>
+      <b style="float: right;">Offer End Date: <b style="color: <?php echo $color ?>; color: <?php echo $color ?>">
+        <?php echo $newsCollection->getEndDate(); ?>
+      </b></b>
+    </tr>
+  </table>
+  <div style="clear: both; border: 1px solid <?php echo $color ?>; color: <?php echo $color ?> "></div>
+  <br/>
+  <div>
+    <?php
+    $content= $newsCollection['content'];
+    echo $this->getContentFromStaticBlock($content);
+    ?>
+  </div>
+</div>
